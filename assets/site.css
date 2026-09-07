@@ -52,10 +52,15 @@
   nav.links{display:flex;align-items:center;gap:18px;}
   nav.links a{font-family:var(--heading);font-size:.88rem;color:var(--navy);font-weight:500;white-space:nowrap;}
   nav.links a:hover{color:var(--orange);}
-  .header-ctas{display:flex;gap:12px;align-items:center;}
-  .header-ctas .btn{padding:10px 18px;font-size:.85rem;white-space:nowrap;}
+  /* Header buttons follow the sibling pages: two short uppercase labels, navy
+     for the shop and accent for the quote. Short labels are what let the nav
+     carry seven items without the buttons wrapping over them. */
+  .header-ctas{display:flex;gap:10px;align-items:center;}
+  .header-ctas .btn{padding:11px 20px;font-size:.78rem;letter-spacing:.06em;
+    text-transform:uppercase;font-weight:700;white-space:nowrap;}
   .header-ctas .btn-primary{background:var(--orange);}
   .header-ctas .btn-ghost{background:var(--navy);color:#fff;}
+  .header-ctas .btn-ghost:hover{background:var(--navy-2);}
   @media (max-width:1100px){ nav.links{display:none;} }
 
   /* Hero */
