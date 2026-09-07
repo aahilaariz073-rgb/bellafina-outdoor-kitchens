@@ -157,8 +157,16 @@
   .visual svg{width:40%;height:40%;opacity:.9;}
   .visual-fire{background:linear-gradient(160deg,#e07a2c,#c9631b 60%,#7a3b10);}
   .visual-water{background:linear-gradient(160deg,#3a5170,#152238 65%);}
-  .visual-video{background:#0e1929;}
-  .visual-video video{width:100%;height:100%;object-fit:cover;}
+  /* Portrait clips (9:16) get their own frame rather than being cropped into
+     the 4:3 slot: the .visual is a plain block here, and the video inside
+     carries the aspect ratio and a capped width so it stays centred. */
+  .visual-video{background:none;aspect-ratio:auto;display:block;overflow:visible;}
+  .visual-video video{display:block;width:100%;max-width:380px;margin:0 auto;
+    aspect-ratio:9/16;object-fit:cover;border-radius:18px;background:#0e1929;
+    box-shadow:0 18px 44px rgba(11,18,32,.22);}
+  .visual-video figcaption{margin:14px auto 0;max-width:380px;text-align:center;
+    color:var(--muted);font-size:.9rem;line-height:1.5;}
+  @media (max-width:860px){ .visual-video video,.visual-video figcaption{max-width:320px;} }
   @media (max-width:860px){ .split .wrap{grid-template-columns:1fr;} .split.reverse .wrap{direction:ltr;} }
 
   /* Categories */
@@ -287,6 +295,18 @@
   .hero-fire{background:radial-gradient(90% 90% at 15% 105%,#c9631b 0%,#7a3b10 28%,#2a1b12 62%,#0d1522 100%);}
   .hero-kitchen{background:radial-gradient(95% 95% at 85% -10%,#43608a 0%,#283d5f 32%,#17253d 66%,#0b1220 100%);}
   .hero-oven{background:radial-gradient(85% 95% at 78% 10%,#c9631b 0%,#8a4a1a 26%,#38261a 62%,#0d1522 100%);}
+
+  /* The theme rules above use the `background` shorthand, which resets the
+     image .hero-photo set earlier in the cascade — so a page that does carry a
+     photograph has to restate it here, after them. The theme gradient stays
+     underneath as the colour shown while the image loads. */
+  .hero-photo{
+    background-image:var(--hero-image);
+    background-color:#0b1220;
+    background-size:cover;
+    background-position:center 60%;
+    background-repeat:no-repeat;
+  }
 
   /* The heavy scrim exists to keep white type legible over a photograph. On a
      gradient hero it only muddies the colour, so soften it and drop the
