@@ -415,3 +415,7 @@
   /* Wider service-area block for the three-county pages. */
   .area-grid.area-grid-wide{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
   .area-county{margin:0 0 6px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .footer-grid .social{display:flex;gap:10px;margin-top:16px;list-style:none;padding:0;}
+  .footer-grid .social li{margin:0;}
+  .footer-grid .social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.22);color:#c7cddb;transition:background .18s ease,color .18s ease,border-color .18s ease;}
+  .footer-grid .social a:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
